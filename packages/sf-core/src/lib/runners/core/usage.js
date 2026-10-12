@@ -40,7 +40,7 @@ const getSubscription = async (auth, versionFramework) => {
   if (!response.ok) {
     const errorMessage = `Failed to fetch your subscription details: ${response.statusText}`
 
-    new ServerlessError(errorMessage, 'GET_SUBSCRIPTION_FAILED', {
+    throw new ServerlessError(errorMessage, 'GET_SUBSCRIPTION_FAILED', {
       originalMessage: errorMessage,
       stack: false,
     })
@@ -76,7 +76,7 @@ const getInstances = async (auth, versionFramework) => {
   if (!response.ok) {
     const errorMessage = `Failed to get a list of billable instances: ${response.statusText}`
 
-    new ServerlessError(errorMessage, 'GET_INSTANCES_FAILED', {
+    throw new ServerlessError(errorMessage, 'GET_INSTANCES_FAILED', {
       originalMessage: errorMessage,
       stack: false,
     })
